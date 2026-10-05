@@ -29,17 +29,17 @@ The engine is built on a modular architecture, sharing a centralized yield curve
 * **NumPy & Pandas** (Vectorization and structured reporting)
 * **Matplotlib** (Financial visualization and P&L charting)
 
-* ## 📚 Base Teórica y Referencias Bibliográficas
+*## 📚 Theoretical Background & References
 
-La arquitectura matemática y financiera de este motor de valoración[cite: 1] está fundamentada en estándares institucionales y literatura cuantitativa avanzada. La principal fuente de referencia para las metodologías aplicadas es el **Manual de instrumentos de renta fija, estructurados de tipos de interés y crédito** (Roberto Knop Muszynski, Roberto Castro Riesco, et al.).
+The mathematical and financial architecture of this pricing engine is rooted in institutional standards and advanced quantitative literature. The primary reference for the applied methodologies is the **Manual de instrumentos de renta fija, estructurados de tipos de interés y crédito** (Roberto Knop Muszynski, Roberto Castro Riesco, et al.).
 
-Los modelos e implementaciones teóricas extraídas de esta literatura y aplicadas directamente en el código[cite: 1] incluyen:
+The theoretical models and implementations extracted from this literature and applied directly in the code include:
 
-* **Valoración *Dual-Curve* (Post-2008):** Separación estricta de la curva de descuento colateralizado (OIS) y la curva de proyección interbancaria (TIIE) para el *pricing* libre de arbitraje en *swaps*[cite: 1].
-* **Construcción y Suavizado de Curvas:** *Bootstrapping* de tasas cero cupón utilizando interpolación PCHIP para los nodos cortos y el modelo paramétrico de **Nelson-Siegel-Svensson (NSS)** para calibrar la estructura temporal a largo plazo[cite: 1].
-* **Modelado de Opciones de Tipo de Cambio:** Implementación del modelo de **Garman-Kohlhagen** (extensión de Black-Scholes para divisas) para evaluar primas teóricas y griegas analíticas (Delta, Gamma, Vega, Theta)[cite: 1].
-* **Medición de Riesgo Estructural:** Uso de métodos numéricos (Newton-Raphson) para el cálculo de *Yield to Maturity* (YTM), junto con la derivación de Duración de Macaulay/Modificada, Convexidad y simulación *Bump & Revalue* (+1 pb) para el cálculo del DV01[cite: 1].
-* **Paridad Cubierta de Tasas de Interés:** Base matemática para la extracción de factores de descuento implícitos OIS y la valoración de derivados multimoneda, incluyendo FX Forwards y el intercambio de principales en *Cross Currency Swaps* (CCS)[cite: 1].
+* **Dual-Curve Valuation (Post-2008):** Strict separation of the collateralized discounting curve (OIS) and the interbank projection curve (TIIE) for arbitrage-free swap pricing.
+* **Curve Construction & Smoothing:** Zero-coupon yield curve bootstrapping using PCHIP interpolation for the short end and the **Nelson-Siegel-Svensson (NSS)** parametric model to calibrate the long-term term structure.
+* **FX Options Modeling:** Implementation of the **Garman-Kohlhagen** model (an extension of Black-Scholes for currencies) to evaluate theoretical premiums and analytical Greeks (Delta, Gamma, Vega, Theta).
+* **Structural Risk Measurement:** Use of numerical methods (Newton-Raphson) to calculate Yield to Maturity (YTM), along with the derivation of Macaulay/Modified Duration, Convexity, and a numerical *Bump & Revalue* simulation (+1 bps) for DV01 calculation.
+* **Covered Interest Rate Parity:** Mathematical foundation for extracting implicit OIS discount factors and pricing multi-currency derivatives, including FX Forwards and principal exchanges in Cross Currency Swaps (CCS).
 
 ## How to Run
 Ensure `insumos_ois.xlsx` and `curva_datos.xlsx` are located in the root directory. Execute `mxn_pricing_risk_engine.py` to run the valuation pipeline across all asset classes and print the risk matrices.
