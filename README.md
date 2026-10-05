@@ -29,7 +29,7 @@ The engine is built on a modular architecture, sharing a centralized yield curve
 * **NumPy & Pandas** (Vectorization and structured reporting)
 * **Matplotlib** (Financial visualization and P&L charting)
 
-* **## Theoretical Background & References**
+## Theoretical Background & References
 
 The mathematical and financial architecture of this pricing engine is rooted in institutional standards and advanced quantitative literature. The primary reference for the applied methodologies is the **Manual de instrumentos de renta fija, estructurados de tipos de interés y crédito** (Roberto Knop Muszynski, Roberto Castro Riesco, et al.).
 
