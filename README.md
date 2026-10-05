@@ -29,7 +29,7 @@ The engine is built on a modular architecture, sharing a centralized yield curve
 * **NumPy & Pandas** (Vectorization and structured reporting)
 * **Matplotlib** (Financial visualization and P&L charting)
 
-*## 📚 Theoretical Background & References
+*## Theoretical Background & References
 
 The mathematical and financial architecture of this pricing engine is rooted in institutional standards and advanced quantitative literature. The primary reference for the applied methodologies is the **Manual de instrumentos de renta fija, estructurados de tipos de interés y crédito** (Roberto Knop Muszynski, Roberto Castro Riesco, et al.).
 
@@ -44,5 +44,5 @@ The theoretical models and implementations extracted from this literature and ap
 ## How to Run
 Ensure `insumos_ois.xlsx` and `curva_datos.xlsx` are located in the root directory. Execute `mxn_pricing_risk_engine.py` to run the valuation pipeline across all asset classes and print the risk matrices.
 
-## 📊 Market Data (As of Date)
+## Market Data (As of Date)
 The yield curves and market parameters provided in the sample Excel files (`insumos_ois.xlsx` and `curva_datos.xlsx`) reflect market conditions as of **October 1st**. The engine is completely dynamic; you can replace these files with updated daily snapshots to re-run valuations under current market conditions.
