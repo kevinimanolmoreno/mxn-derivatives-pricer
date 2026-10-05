@@ -15,7 +15,7 @@ A quantitative finance valuation engine built in Python to price Mexican Interes
 * `matplotlib` (P&L and swap profile visualizations)
 
 ##  How to Run
-1. Ensure the `insumos_ois.xlsx` and `curva_datos.xlsx` data files are in the root directory.
+1. Ensure that the data files `insumos_ois.xlsx` and `curva_datos.xlsx` are located in the root directory; these contain information obtained from Bank of Mexico databases for fixed income, the Federal Reserve Board for U.S. fixed income, and Investing for forward points.
 2. Run the main python script to output the MTM tables and the Break-even analysis.
 
 ##  Theoretical Background
