@@ -1,22 +1,36 @@
-# Mexican Derivatives Pricing Engine (TIIE)
+# MXN Quantitative Pricing & Risk Engine
 
-A quantitative finance valuation engine built in Python to price Mexican Interest Rate Swaps (IRS) using post-2008 dual-curve methodology (OIS discounting + TIIE projection). 
+A comprehensive Fixed Income and Derivatives pricing engine built in Python. This suite models Mexican market instruments (TIIE Legacy, Bonos M) and USD/MXN cross-currency derivatives using institutional-grade quantitative methods.
 
-##  Features
-* **Dual-Curve Valuation:** Strictly separates the OIS collateral discounting curve from the TIIE 28 forward projection curve.
-* **Curve Construction:** Utilizes PCHIP interpolation for the short end and the **Nelson-Siegel-Svensson (NSS)** parametric model for long-term bootstrapping.
-* **Legacy Adjustments:** Automatically incorporates the Banxico regulatory +24 bps adjustment for TIIE Legacy swaps.
-* **Risk & Break-even Analysis:** Calculates Mark-to-Market (MTM) for portfolios and uses SciPy's numerical optimization (`fsolve`) to find the exact day a forward rate crosses a fixed target rate.
+##  Core Capabilities
 
-##  Technologies & Libraries Used
-* `numpy` & `pandas` (Vectorized calculations and data manipulation)
-* `scipy.optimize` (`fsolve`, `curve_fit`)
-* `scipy.interpolate` (`PchipInterpolator`)
-* `matplotlib` (P&L and swap profile visualizations)
+The engine is built on a modular architecture, sharing a centralized yield curve bootstrapping and dual-curve discounting framework:
 
-##  How to Run
-1. Ensure that the data files `insumos_ois.xlsx` and `curva_datos.xlsx` are located in the root directory; these contain information obtained from Bank of Mexico databases for fixed income, the Federal Reserve Board for U.S. fixed income, and Investing for forward points.
-2. Run the main python script to output the MTM tables and the Break-even analysis.
+*   **Module 1: Yield Curve Bootstrapping & Dual-Curve Discounting** 
+    * OIS discounting curve via PCHIP interpolation.
+    * TIIE forward projection curve using numeric bootstrapping (`fsolve`) and Nelson-Siegel-Svensson (NSS) parametric smoothing.
+*   **Module 2: Interest Rate Swaps (IRS) & CCS**
+    * TIIE Legacy IRS valuation with exact day-count conventions and +24 bps Banxico adjustments.
+    * USD/MXN Cross Currency Swaps (CCS) including principal exchange MTM.
+*   **Module 3: FX Forwards & Visual Sensitivities**
+    * Outright FX Forward pricing using continuous interest rate parity.
+    * Break-even and sensitivity visualization via Matplotlib.
+*   **Module 4: Options & Greeks (Garman-Kohlhagen)**
+    * European FX Options pricing.
+    * Analytical Greeks calculation (Delta, Gamma, Vega, Theta).
+*   **Module 5: Advanced Bond Valuation & Risk**
+    * Mexican Government Bonds (Bonos M) pricing (Clean/Dirty).
+    * Iterative Yield-to-Maturity (YTM) calculation using Newton-Raphson.
+    * Risk Metrics: Macaulay/Modified Duration, Convexity, and numerical DV01 (Bump & Revalue).
 
-##  Theoretical Background
-The engine heavily relies on local market conventions (Actual/360, 28-day coupons) and roots its mathematical framework in standard fixed-income literature (e.g., Knop Muszynski's Fixed Income Instruments Manual).
+## Tech Stack
+* **Python** (Core Logic)
+* **SciPy** (`optimize.newton`, `optimize.fsolve`, `optimize.curve_fit`, `stats.norm`, `interpolate.PchipInterpolator`)
+* **NumPy & Pandas** (Vectorization and structured reporting)
+* **Matplotlib** (Financial visualization and P&L charting)
+
+## How to Run
+Ensure `insumos_ois.xlsx` and `curva_datos.xlsx` are located in the root directory. Execute `mxn_pricing_risk_engine.py` to run the valuation pipeline across all asset classes and print the risk matrices.
+
+## 📊 Market Data (As of Date)
+The yield curves and market parameters provided in the sample Excel files (`insumos_ois.xlsx` and `curva_datos.xlsx`) reflect market conditions as of **October 1st**. The engine is completely dynamic; you can replace these files with updated daily snapshots to re-run valuations under current market conditions.
