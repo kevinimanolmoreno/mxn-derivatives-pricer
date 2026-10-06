@@ -35,7 +35,7 @@ The mathematical and financial architecture of this pricing engine is rooted in 
 The theoretical models and implementations extracted from this literature and applied directly in the code include:
 
 **Dual-Curve Valuation (Post-2008)** Strict separation of the collateralized discounting curve (OIS) and the interbank projection curve (TIIE) for arbitrage-free swap pricing.
-**Curve Construction & Smoothing** Zero-coupon yield curve bootstrapping using PCHIP interpolation for the short end and the **Nelson-**Siegel-Svensson (NSS)** parametric model to calibrate the long-term term structure.
+**Curve Construction & Smoothing** Zero-coupon yield curve bootstrapping using PCHIP interpolation for the short end and the      **Nelson Siegel-Svensson (NSS)** parametric model to calibrate the long-term term structure.
 **FX Options Modeling** Implementation of the **Garman-Kohlhagen** model (an extension of Black-Scholes for currencies) to evaluate theoretical premiums and analytical Greeks (Delta, Gamma, Vega, Theta).
 **Structural Risk Measurement** Use of numerical methods (Newton-Raphson) to calculate Yield to Maturity (YTM), along with the derivation of Macaulay/Modified Duration, Convexity, and a numerical *Bump & Revalue* simulation (+1 bps) for DV01 calculation.
 **Covered Interest Rate Parity** Mathematical foundation for extracting implicit OIS discount factors and pricing multi-currency derivatives, including FX Forwards and principal exchanges in Cross Currency Swaps (CCS).
